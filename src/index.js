@@ -5,8 +5,17 @@
  * pos大于0为放大，小于0为缩小；不传则默认将其变成整数
  * @return {number}          放缩后的数
  */
-export const scaleNum = (num, pos) => {
-  if (num === 0 || pos === 0) {
+export const scaleNum = (number, pos) => {
+  const num = Number(number)
+  const posStr = String(pos)
+    .toString()
+    .trim()
+
+  if (isNaN(num) || num === 0) {
+    return 0
+  }
+
+  if (pos === 0) {
     return num
   }
 
@@ -22,7 +31,7 @@ export const scaleNum = (num, pos) => {
   const decimalLen = parts[1] ? parts[1].length : 0
 
   // 默认将其变成整数，放大倍数为原来小数位数
-  if (pos === undefined || pos === null) {
+  if (pos === undefined || pos === null || posStr === '' || posStr === 'NaN') {
     return parseFloat(parts[0] + parts[1])
   }
 

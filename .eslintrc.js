@@ -28,6 +28,7 @@ module.exports = {
         ImportDeclaration: 'never',
         ExportDeclaration: { multiline: true, minProperties: 3 }
       }
-    ]
+    ],
+    'no-restricted-globals': ['error', 'event', 'fdescribe']
   }
 }

@@ -2,6 +2,7 @@
   "name": "calculate-asmd",
   "version": "2.2.2",
   "description": "calculate/arithmetic",
+  "license": "MIT",
   "scripts": {
     "start": "umi-lib doc dev",
     "doc": "umi-lib doc build && cpx docs/404.html .docz/dist/ && umi-lib doc deploy",
@@ -27,8 +28,7 @@
     "arithmetic",
     "asmd"
   ],
-  "author": "WangYang",
-  "license": "MIT",
+  "author": "sanshuiwang",
   "bugs": {
     "url": "https://github.com/sanshuiwang/calculate-asmd/issues"
   },

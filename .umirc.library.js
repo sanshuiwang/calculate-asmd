@@ -6,9 +6,9 @@ export default {
   doc: {
     src: './docs',
     public: './public',
-    base: '/axios-last/',
-    title: 'axios-last',
-    description: 'Solution for taking the last value from multiple calls',
+    base: '/calculate-asmd/',
+    title: 'calculate-asmd',
+    description: 'calculate/arithmetic',
     plugins: [splash()]
   }
 }
