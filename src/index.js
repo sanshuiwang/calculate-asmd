@@ -1,21 +1,18 @@
 /**
- * [scaleNum 通过操作其字符串将一个浮点数放大或缩小]
- * @param  {number} num      要放缩的浮点数
- * @param  {number} pos      小数点移动位数
- * pos大于0为放大，小于0为缩小；不传则默认将其变成整数
- * @return {number}          放缩后的数
+ * [scaleNum 将一个number浮点数放大或缩小position个小数点位数]
+ * @param  {number} number        要放缩的浮点数
+ * @param  {number} position      小数点移动位数
+ * position大于0为放大，小于0为缩小，等于0不做缩放。
+ * @return {number}               放缩后的数
  */
-export const scaleNum = (number, pos) => {
+export const scaleNum = (number = 0, position = 0) => {
   const num = Number(number)
-  const posStr = String(pos)
-    .toString()
-    .trim()
-
-  if (isNaN(num) || num === 0) {
-    return 0
+  const posNum = Number(position)
+  // 如果传入两个参数，Number转化后为NaN则直接返回NaN
+  if (isNaN(num) || isNaN(posNum)) {
+    return NaN
   }
-
-  if (pos === 0) {
+  if (num === 0 || posNum === 0) {
     return num
   }
 
@@ -30,28 +27,23 @@ export const scaleNum = (number, pos) => {
   const intLen = parts[0].length
   const decimalLen = parts[1] ? parts[1].length : 0
 
-  // 默认将其变成整数，放大倍数为原来小数位数
-  if (pos === undefined || pos === null || posStr === '' || posStr === 'NaN') {
-    return parseFloat(parts[0] + parts[1])
-  }
-
-  if (pos > 0) {
+  if (posNum > 0) {
     // 放大
-    let zeros = pos - decimalLen
+    let zeros = posNum - decimalLen
     while (zeros > 0) {
       zeros -= 1
       parts.push(0)
     }
   } else {
     // 缩小
-    let zeros = Math.abs(pos) - intLen
+    let zeros = Math.abs(posNum) - intLen
     while (zeros > 0) {
       zeros -= 1
       parts.unshift(0)
     }
   }
 
-  const idx = intLen + pos
+  const idx = intLen + posNum
   parts = parts.join('').split('')
   parts.splice(idx > 0 ? idx : 0, 0, '.')
 
@@ -68,25 +60,31 @@ export const scaleNum = (number, pos) => {
  * @param {number} arg2       被加数
  * @return {number}           结果
  */
-export const add = (arg1, arg2) => {
+export const add = (arg1 = 0, arg2 = 0) => {
+  const param1 = Number(arg1)
+  const param2 = Number(arg2)
+  if (isNaN(param1) || isNaN(param2)) {
+    return NaN
+  }
+
   let r1 = 0
   let r2 = 0
   let scale = 0
   try {
-    r1 = arg1.toString().split('.')[1].length
+    r1 = param1.toString().split('.')[1].length
   } catch (e) {
     r1 = 0
   }
 
   try {
-    r2 = arg2.toString().split('.')[1].length
+    r2 = param2.toString().split('.')[1].length
   } catch (e) {
     r2 = 0
   }
 
   scale = Math.max(r1, r2)
-  const num1 = scaleNum(arg1, scale)
-  const num2 = scaleNum(arg2, scale)
+  const num1 = scaleNum(param1, scale)
+  const num2 = scaleNum(param2, scale)
   const num = num1 + num2
   const result = scaleNum(num, -scale)
   return result
@@ -98,25 +96,31 @@ export const add = (arg1, arg2) => {
  * @param {number} arg2       被减数
  * @return {number}           结果
  */
-export const sub = (arg1, arg2) => {
+export const sub = (arg1 = 0, arg2 = 0) => {
+  const param1 = Number(arg1)
+  const param2 = Number(arg2)
+  if (isNaN(param1) || isNaN(param2)) {
+    return NaN
+  }
+
   let r1 = 0
   let r2 = 0
   let scale = 0
   try {
-    r1 = arg1.toString().split('.')[1].length
+    r1 = param1.toString().split('.')[1].length
   } catch (e) {
     r1 = 0
   }
 
   try {
-    r2 = arg2.toString().split('.')[1].length
+    r2 = param2.toString().split('.')[1].length
   } catch (e) {
     r2 = 0
   }
 
   scale = Math.max(r1, r2)
-  const num1 = scaleNum(arg1, scale)
-  const num2 = scaleNum(arg2, scale)
+  const num1 = scaleNum(param1, scale)
+  const num2 = scaleNum(param2, scale)
   const num = num1 - num2
   const result = scaleNum(num, -scale)
   return result
@@ -128,19 +132,25 @@ export const sub = (arg1, arg2) => {
  * @param {number} arg2       被乘数
  * @return {number}           结果
  */
-export const mul = (arg1, arg2) => {
-  const num1 = Number(arg1.toString().replace('.', ''))
-  const num2 = Number(arg2.toString().replace('.', ''))
+export const mul = (arg1 = 0, arg2 = 0) => {
+  const param1 = Number(arg1)
+  const param2 = Number(arg2)
+  if (isNaN(param1) || isNaN(param2)) {
+    return NaN
+  }
+
+  const num1 = Number(param1.toString().replace('.', ''))
+  const num2 = Number(param2.toString().replace('.', ''))
   let scale = 0
 
   try {
-    scale += arg1.toString().split('.')[1].length
+    scale += param1.toString().split('.')[1].length
   } catch (e) {
     scale += 0
   }
 
   try {
-    scale += arg2.toString().split('.')[1].length
+    scale += param2.toString().split('.')[1].length
   } catch (e) {
     scale += 0
   }
