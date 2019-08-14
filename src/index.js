@@ -166,19 +166,25 @@ export const mul = (arg1 = 0, arg2 = 0) => {
  * @param {number} arg2       被除数
  * @return {number}           结果
  */
-export const div = (arg1, arg2) => {
-  const num1 = Number(arg1.toString().replace('.', ''))
-  const num2 = Number(arg2.toString().replace('.', ''))
+export const div = (arg1 = 0, arg2 = 0) => {
+  const param1 = Number(arg1)
+  const param2 = Number(arg2)
+  if (isNaN(param1) || isNaN(param2)) {
+    return NaN
+  }
+
+  const num1 = Number(param1.toString().replace('.', ''))
+  const num2 = Number(param2.toString().replace('.', ''))
   let left1 = 0
   let left2 = 0
   try {
-    left1 = Number(arg1.toString().split('.')[1].length)
+    left1 = Number(param1.toString().split('.')[1].length)
   } catch (e) {
     left1 = 0
   }
 
   try {
-    left2 = Number(arg2.toString().split('.')[1].length)
+    left2 = Number(param2.toString().split('.')[1].length)
   } catch (e) {
     left2 = 0
   }

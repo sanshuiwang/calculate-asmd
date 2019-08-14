@@ -238,4 +238,39 @@ describe('DIV', () => {
       assert.equal(divNegative, -0.0057)
     })
   })
+
+  describe('#div(null, 10)', () => {
+    const divNegative = div(null, 10)
+    it('divNegative should equal 0', () => {
+      assert.equal(divNegative, 0)
+    })
+  })
+
+  describe('#div(" ", 10)', () => {
+    const divNegative = div(' ', 10)
+    it('divNegative should equal 0', () => {
+      assert.equal(divNegative, 0)
+    })
+  })
+
+  describe('#div(100, NaN)', () => {
+    const divNegative = div(100, NaN)
+    it('divNegative should equal NaN', () => {
+      assert(expect(divNegative).to.be.NaN)
+    })
+  })
+
+  describe('#div(100, null)', () => {
+    const divNegative = div(100, null)
+    it('divNegative should equal Infinity', () => {
+      assert.equal(divNegative, Infinity)
+    })
+  })
+
+  describe('#div(100, 0)', () => {
+    const divNegative = div(100, 0)
+    it('divNegative should equal Infinity', () => {
+      assert.equal(divNegative, Infinity)
+    })
+  })
 })
