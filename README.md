@@ -31,7 +31,6 @@ or
   const subNegative = sub(0.2, -0.4);
   console.log("sub(0.2, -0.4): ", subNegative); //sub(0.2, -0.4):  0.6
 
-
   const mulNum = mul(0.57, 100);
   console.log("mul(0.57, 100): ", mulNum); //mul(0.57, 100):  57
   const mulNegativ = mul(-0.57, 100);
@@ -42,5 +41,15 @@ or
   const divNegative = div(-0.57, 100);
   console.log("div(-0.57, 100): ", divNegative);  //div(-0.57, 100):  -0.0057
 
+```
+
+<h4>Expand</h4>
+
+```
+  import { scaleNum } from 'calculate-asmd'
+
+  scaleNum(0.57, 2)   // 57
+  scaleNum(0.57, -2) // 0.0057
+  scaleNum(0.57, 0) // 0.57
 
 ```
