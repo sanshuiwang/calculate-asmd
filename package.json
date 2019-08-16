@@ -5,11 +5,12 @@
   "license": "MIT",
   "scripts": {
     "start": "umi-lib doc dev",
-    "doc": "umi-lib doc build && cpx docs/404.html .docz/dist/ && umi-lib doc deploy",
+    "doc": "umi-lib doc build && cpx docs/404.html .docz/mochawesome-report/ && umi-lib doc deploy",
     "build": "umi-lib build",
     "prepare": "yarn run build",
     "test": "yarn run build && mocha",
-    "pre-mochawesome": "mocha --reporter mochawesome"
+    "pre-mochawesome": "mocha --reporter mochawesome",
+    "deploy": "gh-pages -d mochawesome-report"
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -41,6 +42,7 @@
     "eslint": "^5.15.3",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
+    "gh-pages": "^2.1.1",
     "mocha": "^6.0.2",
     "mochawesome": "^4.1.0",
     "nock": "^10.0.6",
