@@ -53,3 +53,19 @@ or
   scaleNum(0.57, 0) // 0.57
 
 ```
+
+> asmd(arg1,arg2)
+
+`arg1`: Default 0, type number/string
+
+`arg2`: Default 0, type number/string
+
+`Tips: If arg is NaN, it will return NaN directly. If arg is null/undefined/"", arg will be treated as 0`
+
+> div(arg1,arg2)
+
+`arg2`: If arg2 is 0, it will return Infinity.
+
+> Test
+
+[Test Document]()
