@@ -1,7 +1,7 @@
 {
   "name": "calculate-asmd",
   "version": "2.3.1",
-  "description": "calculate/arithmetic",
+  "description": "The precise addition, subtraction, multiplication and division of JavaScript avoids the error of floating point calculation",
   "license": "MIT",
   "scripts": {
     "start": "umi-lib doc dev",
