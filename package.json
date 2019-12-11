@@ -27,8 +27,12 @@
   ],
   "keywords": [
     "calculate",
+    "asmd",
     "arithmetic",
-    "asmd"
+    "Addition",
+    "subtraction",
+    "multiplication",
+    "division"
   ],
   "author": "sanshuiwang",
   "bugs": {
@@ -39,14 +43,15 @@
     "chai": "^4.2.0",
     "cpx": "^1.5.0",
     "docz-plugin-splash": "^1.0.1",
-    "eslint": "^5.15.3",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.16.0",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
     "gh-pages": "^2.1.1",
-    "mocha": "^6.0.2",
+    "mocha": "^6.2.2",
     "mochawesome": "^4.1.0",
-    "nock": "^10.0.6",
-    "typescript": "^3.3.4000",
+    "nock": "^11.7.0",
+    "serialize-javascript": "^2.1.2",
+    "typescript": "^3.7.3",
     "umi-library": "^1.4.1"
   },
   "peerDependencies": {}
