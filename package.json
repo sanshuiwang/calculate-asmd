@@ -1,6 +1,6 @@
 {
   "name": "calculate-asmd",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "The precise addition, subtraction, multiplication and division of JavaScript avoids the error of floating point calculation",
   "license": "MIT",
   "scripts": {
@@ -15,15 +15,15 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "jsnext:main": "dist/index.esm.js",
-  "typings": "dist/index.d.ts",
+  "typings": "typings/index.d.ts",
   "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sanshuiwang/calculate-asmd.git"
   },
   "files": [
-    "src",
-    "dist"
+    "dist",
+    "typings"
   ],
   "keywords": [
     "calculate",
