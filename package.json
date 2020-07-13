@@ -4,9 +4,7 @@
   "description": "The precise addition, subtraction, multiplication and division of JavaScript avoids the error of floating point calculation",
   "license": "MIT",
   "scripts": {
-    "start": "umi-lib doc dev",
-    "doc": "umi-lib doc build && cpx docs/404.html .docz/mochawesome-report/ && umi-lib doc deploy",
-    "build": "umi-lib build",
+    "build": "father build",
     "prepare": "yarn run build",
     "test": "yarn run build && mocha",
     "pre-mochawesome": "mocha --reporter mochawesome",
@@ -42,8 +40,6 @@
   "homepage": "https://github.com/sanshuiwang/calculate-asmd#readme",
   "devDependencies": {
     "chai": "^4.2.0",
-    "cpx": "^1.5.0",
-    "docz-plugin-splash": "^1.0.1",
     "eslint": "^6.7.2",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.19.1",
@@ -53,7 +49,8 @@
     "nock": "^11.7.0",
     "serialize-javascript": "^2.1.2",
     "typescript": "^3.7.3",
-    "umi-library": "^1.4.1"
+    "father": "^2.29.5"
   },
-  "peerDependencies": {}
+  "peerDependencies": {},
+  "dependencies": {}
 }
